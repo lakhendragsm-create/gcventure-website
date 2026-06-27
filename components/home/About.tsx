@@ -1,111 +1,84 @@
 "use client";
 
 import Image from "next/image";
-import { CheckCircle2, Laptop, RadioTower, ShieldCheck } from "lucide-react";
+import { Laptop, RadioTower, ShieldCheck, Headphones } from "lucide-react";
 
 const features = [
   {
-    icon: <Laptop size={32} />,
-    title: "Enterprise IT Rental",
-    description:
-      "Laptops, Desktops, MacBooks, Servers, Firewalls and Network Equipment on Rent.",
+    icon: Laptop,
+    title: "IT Rental Solutions",
+    desc: "Laptop, Desktop, MacBook, Server, Firewall and Network Equipment Rental.",
   },
   {
-    icon: <RadioTower size={32} />,
+    icon: RadioTower,
     title: "Telecom Infrastructure",
-    description:
-      "Civil Works, RF Survey, BTS Installation, Electrical Works and OFC Deployment.",
+    desc: "Civil, Electrical, RF Survey, BTS Installation and OFC Deployment.",
   },
   {
-    icon: <ShieldCheck size={32} />,
-    title: "Trusted Partner",
-    description:
-      "Serving enterprises, telecom companies and government organizations since 2013.",
+    icon: ShieldCheck,
+    title: "Trusted Since 2013",
+    desc: "Supporting enterprises with reliable technology and infrastructure services.",
+  },
+  {
+    icon: Headphones,
+    title: "24×7 Support",
+    desc: "Dedicated technical support with nationwide service coverage.",
   },
 ];
 
 export default function About() {
   return (
-    <section className="bg-white py-28">
+    <section className="bg-slate-50 py-24">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-14 items-center">
 
           <div>
             <Image
               src="/images/about.jpg"
-              alt="About GC Venture"
+              alt="GC Venture"
               width={700}
-              height={650}
-              className="rounded-3xl shadow-2xl"
+              height={550}
+              className="rounded-3xl shadow-xl object-cover"
             />
           </div>
 
           <div>
 
-            <span className="text-cyan-600 font-semibold tracking-widest uppercase">
+            <span className="text-cyan-600 font-semibold uppercase tracking-widest">
               About GC Venture
             </span>
 
-            <h2 className="text-5xl font-black text-slate-900 mt-4 leading-tight">
-              Enterprise Technology
+            <h2 className="mt-4 text-5xl font-bold text-slate-900 leading-tight">
+              Enterprise Technology &
               <br />
-              Solutions Across India
+              Telecom Solutions
             </h2>
 
-            <p className="mt-8 text-gray-600 leading-8 text-lg">
-              GC Venture Pvt Ltd is one of India's trusted providers of
-              Enterprise IT Rental Solutions and Telecom Infrastructure
-              Services. We support organizations with reliable technology,
-              skilled manpower and nationwide service delivery.
+            <p className="mt-8 text-lg leading-8 text-slate-600">
+              GC Venture Pvt Ltd delivers enterprise IT rental services and
+              telecom infrastructure solutions across India. We help businesses
+              deploy technology quickly with reliable equipment, skilled
+              engineers and nationwide support.
             </p>
 
-            <div className="mt-10 space-y-5">
-
-              <div className="flex gap-4 items-center">
-                <CheckCircle2 className="text-cyan-500" />
-                <p>Premium Enterprise Laptop Rental Services</p>
-              </div>
-
-              <div className="flex gap-4 items-center">
-                <CheckCircle2 className="text-cyan-500" />
-                <p>Nationwide Telecom Infrastructure Projects</p>
-              </div>
-
-              <div className="flex gap-4 items-center">
-                <CheckCircle2 className="text-cyan-500" />
-                <p>24×7 Technical Support Team</p>
-              </div>
-
+            <div className="mt-10 grid sm:grid-cols-2 gap-6">
+              {features.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl bg-white p-6 shadow-md hover:shadow-xl transition"
+                  >
+                    <Icon className="text-cyan-600 mb-4" size={32} />
+                    <h3 className="font-bold text-xl">{item.title}</h3>
+                    <p className="mt-3 text-slate-600">{item.desc}</p>
+                  </div>
+                );
+              })}
             </div>
 
           </div>
-
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 mt-20">
-
-          {features.map((item, index) => (
-
-            <div
-              key={index}
-              className="rounded-3xl border border-slate-200 p-8 hover:shadow-2xl transition duration-300"
-            >
-              <div className="text-cyan-600 mb-6">
-                {item.icon}
-              </div>
-
-              <h3 className="text-2xl font-bold">
-                {item.title}
-              </h3>
-
-              <p className="mt-4 text-gray-600 leading-7">
-                {item.description}
-              </p>
-
-            </div>
-
-          ))}
 
         </div>
 
